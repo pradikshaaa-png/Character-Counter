@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+</head>
+<body>
+<style>
+   .form{
+    
+       justify-content: center;
+       text-align: center;
+       background-color: crimson;
+       border-radius: 30px;
+       margin-left: 200px;
+       margin-right:200px;
+       margin-top:100px;
+       padding-top: 20px;
+       padding-bottom: 50px;
+       font-family: 'Poppins', serif;
+    }
+   .feedbackform{
+       color: blue;
+   }
+   .nameinput{
+       width: 200px;
+       height:30px;
+       margin-top:10px ;
+       margin-bottom: 20px;
+       margin-left: 60px;
+   }
+   .emailinput{
+    width: 200px;
+    height:30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+   }
+   .messageinput{
+    width: 200px;
+    height:30px;
+    margin-left: 40px;
+    margin-top: 10px;
+   }
+
+   .counterbox{
+       font-size: small;
+       margin-top: 10px;
+       margin-left: 100px;
+   }
+
+   .btn{ 
+       padding: 5px;
+       margin-top: 20px;
+       border-radius: 3px;
+       background-color: green;
+       color: white;
+       border: none}
+</style>
+    <form class="form">
+<h1 class="Feedbackform"> Feedbackform</h1>
+<label class="name">Name: </label>
+<input type="text" placeholder="Enter your name" class="nameinput"> <br>
+<label class="email">E-mail: </label>
+<input type="email" placeholder="Enter your email" class="emailinput"><br>
+<label class="message">Message: </label>
+<textarea placeholder="Your Feedback on fitness class" class="messageinput" maxlength="200"></textarea>
+
+
+<div class="counterbox">
+    <span id="charcount"> 0 </span> / 200 characters |
+    <span id="counter"> 200 characters remaining </span>
+</div>
+
+<button class="btn" type="submit">Submit</button>
+</form>
+
+
+<script>
+    var textarea=document.querySelector(".messageinput");
+    var charCount=document.getElementById("charcount");
+    var counterDisplay=document.getElementById("counter")
+    var maxlength=textarea.getAttribute("maxlength")
+
+    textarea.addEventListener('input', function ()  {
+        var currentLength = textarea.value.length;
+        charCount.textContent = currentLength; 
+    var remainingCount= (maxlength - currentLength);
+    counterDisplay.textContent= remainingCount + " characters remaining";
+
+    if(textarea.value.length >= maxlength)
+    {
+        alert("Warning Message: Character limit reached!")
+    }
+    });
+
+
+
+</script>
+</body>
+</html>
